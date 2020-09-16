@@ -671,6 +671,18 @@ class Crud_model extends CI_Model
             return base_url() . $course_media_placeholders[$type . '_placeholder'];
         }
     }
+
+    public function get_training_thumbnail_url($training_id, $type = '')
+    {
+        $course_media_placeholders = themeConfiguration(get_frontend_settings('theme'), 'course_media_placeholders');
+
+        if (file_exists('uploads/learning_mode/' . $type . '_' . get_frontend_settings('theme') . '_' . $training_id . '.png')) {
+            return base_url() . 'uploads/learning_mode/' . $type . '_' . get_frontend_settings('theme') . '_' . $training_id . '.png';
+        } else {
+            return base_url() . $course_media_placeholders[$type . '_placeholder'];
+        }
+    }
+
     public function get_lesson_thumbnail_url($lesson_id)
     {
 
@@ -731,7 +743,7 @@ class Crud_model extends CI_Model
 
     public function get_training_options_name($course_id = ""){
 
-        $this->db->select('training_type');
+        $this->db->select('training_type, course_learning_options.training_id');
         $this->db->where('course_id', $course_id);
         $this->db->from('course_learning_options');
         $this->db->join('training_options', 'training_options.training_id = course_learning_options.training_id', 'inner');

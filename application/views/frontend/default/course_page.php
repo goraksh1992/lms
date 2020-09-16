@@ -2,6 +2,11 @@
 $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 $instructor_details = $this->user_model->get_all_user($course_details['user_id'])->row_array();
 $traning_options = $this->crud_model->get_training_options_name($course_id);
+$all_training = $this->crud_model->get_training_type();
+
+$arr = array_map (function($value){
+    return $value['training_id'];
+    } , $traning_options);
 
 ?>
 <section class="course-header-area">
@@ -154,11 +159,32 @@ $traning_options = $this->crud_model->get_training_options_name($course_id);
     <div class="requirements-box">
       <div class="requirements-title">Training options</div>
       <div class="requirements-content">
-        <ul class="requirements__list">
+        <!-- <ul class="requirements__list">
           <?php foreach ($traning_options as $training_opt): ?>
               <li><?php echo $training_opt['training_type']; ?></li>
           <?php endforeach; ?>
-        </ul>
+        </ul> -->
+        <div class="row">
+          <?php 
+            foreach ($all_training as $key => $value) { ?>
+              <div class="col-md-2" style="text-align: center;">
+                <?php if(in_array($value['training_id'], $arr)){ ?>
+
+                  <img src="<?php echo $this->crud_model->get_training_thumbnail_url($value['training_id'], 'enable'); ?>" alt="" class="img-fluid" width="80">
+                  <p style="text-align: center;"><?php echo $value['training_type']; ?></p>
+
+                <?php }else{ ?>
+
+                  <img src="<?php echo $this->crud_model->get_training_thumbnail_url($value['training_id'], 'enable'); ?>" alt="" class="img-fluid" width="80" style="opacity: 0.4">
+                  <p style="text-align: center;"><?php echo $value['training_type']; ?></p>
+              <?php  
+                }
+              ?>
+            </div>
+            <?php
+            }
+           ?>
+        </div>
       </div>
     </div>
     <div class="description-box view-more-parent">
