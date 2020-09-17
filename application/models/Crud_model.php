@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 if (file_exists("application/aws-module/aws-autoloader.php")) {
-    include APPPATH.'aws-module/aws-autoloader.php';
+    include APPPATH.'aws-module/aws-autoloader.php';      
 }
 
 class Crud_model extends CI_Model
