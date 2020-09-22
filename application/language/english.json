@@ -647,5 +647,22 @@
     "support_expiry_date": "Support expiry date",
     "customer_name": "Customer name",
     "get_customer_support": "Get customer support",
-    "customer_support": "Customer support"
+    "customer_support": "Customer support",
+    "key_features": "Key features",
+    "program_overview": "Program overview",
+    "skills_/_tools": "Skills / tools",
+    "feature": "Feature",
+    "skills": "Skills",
+    "skill": "Skill",
+    "tools": "Tools",
+    "eligibility": "Eligibility",
+    "icon": "Icon",
+    "eligibility_description": "Eligibility description",
+    "adm_counselors": "Adm counselors",
+    "admission_counselors_description": "Admission counselors description",
+    "admission_counselors": "Admission counselors",
+    "start_date": "Start date",
+    "end_date": "End date",
+    "total_seats": "Total seats",
+    "skills_covered": "Skills covered"
 }

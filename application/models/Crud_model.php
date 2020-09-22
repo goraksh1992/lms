@@ -470,11 +470,32 @@ class Crud_model extends CI_Model
     {
         $outcomes = $this->trim_and_return_json($this->input->post('outcomes'));
         $requirements = $this->trim_and_return_json($this->input->post('requirements'));
+        $feature = $this->trim_and_return_json($this->input->post('feature'));
+        $skills = $this->trim_and_return_json($this->input->post('skills'));
+        $admission_counselors = $this->trim_and_return_json($this->input->post('admission_counselors'));
+
+        $icon = $this->input->post('icon');
+        $eligibility_description = $this->input->post('eligibility_description');
+
+        $eligibility = json_encode(array_combine($icon, $eligibility_description));
+
+        
 
         $data['title'] = html_escape($this->input->post('title'));
         $data['short_description'] = $this->input->post('short_description');
         $data['description'] = $this->input->post('description');
         $data['outcomes'] = $outcomes;
+        $data['course_overview'] = $this->input->post('course_overview');
+        $data['key_features'] = $feature;
+        $data['skills_covered'] = $skills;
+        $data['eligibility_short_description'] = $this->input->post('eligibility_short_description');
+        $data['eligibility'] = $eligibility;
+        $data['course_start_date'] = $this->input->post('start_date');
+        $data['course_end_date'] = $this->input->post('end_date');
+        $data['program_duration'] = $this->input->post('duration');
+        $data['no_of_seats'] = $this->input->post('total_seats');
+        $data['adm_coun_title'] = $this->input->post('admission_counselors_description');
+        $data['adm_coun_points'] = $admission_counselors;
         $data['language'] = $this->input->post('language_made_in');
         $data['sub_category_id'] = $this->input->post('sub_category_id');
         $category_details = $this->get_category_details_by_id($this->input->post('sub_category_id'))->row_array();
@@ -569,10 +590,27 @@ class Crud_model extends CI_Model
 
         $outcomes = $this->trim_and_return_json($this->input->post('outcomes'));
         $requirements = $this->trim_and_return_json($this->input->post('requirements'));
+        $feature = $this->trim_and_return_json($this->input->post('feature'));
+        $skills = $this->trim_and_return_json($this->input->post('skill'));
+        $admission_counselors = $this->trim_and_return_json($this->input->post('admission_counselors'));
+        
+
+        $icon = $this->input->post('icon');
+        $eligibility_description = $this->input->post('eligibility_description');
+
+        $eligibility = json_encode(array_combine($icon, $eligibility_description));
+
         $data['title'] = $this->input->post('title');
         $data['short_description'] = $this->input->post('short_description');
         $data['description'] = $this->input->post('description');
         $data['outcomes'] = $outcomes;
+        $data['key_features'] = $feature;
+        $data['skills_covered'] = $skills;
+        $data['adm_coun_title'] = $this->input->post('admission_counselors_description');
+        $data['adm_coun_points'] = $admission_counselors;
+        $data['eligibility_short_description'] = $this->input->post('eligibility_short_description');
+        $data['eligibility'] = $eligibility;
+        $data['course_overview'] = $this->input->post('course_overview');
         $data['language'] = $this->input->post('language_made_in');
         $data['sub_category_id'] = $this->input->post('sub_category_id');
         $category_details = $this->get_category_details_by_id($this->input->post('sub_category_id'))->row_array();

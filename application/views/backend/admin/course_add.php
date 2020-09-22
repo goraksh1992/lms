@@ -1,3 +1,8 @@
+<style type="text/css">
+    .nav-justified .nav-item{
+        flex-basis: auto;
+    }
+</style>
 <div class="row ">
     <div class="col-xl-12">
         <div class="card">
@@ -33,6 +38,36 @@
                                         <a href="#requirements" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                             <i class="mdi mdi-bell-alert mr-1"></i>
                                             <span class="d-none d-sm-inline"><?php echo get_phrase('requirements'); ?></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#key_features" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
+                                            <i class="mdi mdi-buffer mr-1"></i>
+                                            <span class="d-none d-sm-inline"><?php echo get_phrase('key_features'); ?></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#skills" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
+                                            <i class="mdi mdi-auto-fix mr-1"></i>
+                                            <span class="d-none d-sm-inline"><?php echo get_phrase('skills'); ?></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#tools" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
+                                            <i class="mdi mdi-settings mr-1"></i>
+                                            <span class="d-none d-sm-inline"><?php echo get_phrase('tools'); ?></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#eligibility" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
+                                            <i class="mdi mdi-bullseye mr-1"></i>
+                                            <span class="d-none d-sm-inline"><?php echo get_phrase('eligibility'); ?></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#adm_counselors" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
+                                            <i class="mdi mdi-school mr-1"></i>
+                                            <span class="d-none d-sm-inline"><?php echo get_phrase('admission_counselors'); ?></span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -151,6 +186,30 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="start_date"><?php echo get_phrase('start_date'); ?></label>
+                                                <div class="col-md-10">
+                                                    <input type="date" name="start_date" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="end_date"><?php echo get_phrase('end_date'); ?></label>
+                                                <div class="col-md-10">
+                                                    <input type="date" name="end_date" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="duration"><?php echo get_phrase('duration'); ?></label>
+                                                <div class="col-md-10">
+                                                    <input type="text" name="duration" class="form-control" placeholder="Course Duration">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="total_seats"><?php echo get_phrase('total_seats'); ?></label>
+                                                <div class="col-md-10">
+                                                    <input type="number" name="total_seats" class="form-control" placeholder="Total Seats">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
                                                 <label class="col-md-2 col-form-label" for="language_made_in"><?php echo get_phrase('language_made_in'); ?></label>
                                                 <div class="col-md-10">
                                                     <select class="form-control select2" data-toggle="select2" name="language_made_in" id="language_made_in">
@@ -208,6 +267,58 @@
                                     </div>
                                 </div>
 
+                                <div class="tab-pane" id="key_features">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-8">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="program_overview"><?php echo get_phrase('program_overview'); ?></label>
+                                                <div class="col-md-10">
+                                                    <div id = "outcomes_area11">
+                                                        <div class="d-flex mt-2">
+                                                            <div class="flex-grow-1 px-3">
+                                                                <div class="form-group">
+                                                                    <textarea name="course_overview" id = "course_overview" class="form-control"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="key_features"><?php echo get_phrase('key_features'); ?></label>
+                                                <div class="col-md-10">
+                                                    <div id = "key_feature_area">
+                                                        <div class="d-flex mt-2">
+                                                            <div class="flex-grow-1 px-3">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="feature[]" id="feature" placeholder="<?php echo get_phrase('feature'); ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="">
+                                                                <button type="button" class="btn btn-success btn-sm" name="button" onclick="appendFeature()"> <i class="fa fa-plus"></i> </button>
+                                                            </div>
+                                                        </div>
+                                                        <div id = "blank_feature_field">
+                                                            <div class="d-flex mt-2">
+                                                                <div class="flex-grow-1 px-3">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" name="feature[]" id="feature" placeholder="<?php echo get_phrase('feature'); ?>">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="">
+                                                                    <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeFeature(this)"> <i class="fa fa-minus"></i> </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="tab-pane" id="outcomes">
                                     <div class="row justify-content-center">
                                         <div class="col-xl-8">
@@ -234,6 +345,188 @@
                                                                 </div>
                                                                 <div class="">
                                                                     <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeOutcome(this)"> <i class="fa fa-minus"></i> </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="skills">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-8">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="skills"><?php echo get_phrase('skills'); ?></label>
+                                                <div class="col-md-10">
+                                                    <div id = "skills_area">
+                                                        <div class="d-flex mt-2">
+                                                            <div class="flex-grow-1 px-3">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="skills[]" id="skills" placeholder="<?php echo get_phrase('Skill'); ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="">
+                                                                <button type="button" class="btn btn-success btn-sm" name="button" onclick="appendSkill()"> <i class="fa fa-plus"></i> </button>
+                                                            </div>
+                                                        </div>
+                                                        <div id = "blank_skill_field">
+                                                            <div class="d-flex mt-2">
+                                                                <div class="flex-grow-1 px-3">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" name="skills[]" id="skills" placeholder="<?php echo get_phrase('skill'); ?>">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="">
+                                                                    <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeSkill(this)"> <i class="fa fa-minus"></i> </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="tools">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-8">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="tools"><?php echo get_phrase('tools'); ?></label>
+                                                <div class="col-md-10">
+                                                    <div id = "tools_area">
+                                                        <div class="d-flex mt-2">
+                                                            <div class="flex-grow-1 px-3">
+                                                                <div class="form-group">
+                                                                    <input type="file" class="form-control" name="tools[]" id="tools" placeholder="<?php echo get_phrase('tools'); ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="">
+                                                                <button type="button" class="btn btn-success btn-sm" name="button" onclick="appendTools()"> <i class="fa fa-plus"></i> </button>
+                                                            </div>
+                                                        </div>
+                                                        <div id = "blank_tool_field">
+                                                            <div class="d-flex mt-2">
+                                                                <div class="flex-grow-1 px-3">
+                                                                    <div class="form-group">
+                                                                        <input type="file" class="form-control" name="tools[]" id="tools" placeholder="<?php echo get_phrase('tools'); ?>">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="">
+                                                                    <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeTools(this)"> <i class="fa fa-minus"></i> </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="adm_counselors">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-8">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="admission_counselors_description"><?php echo get_phrase('admission_counselors_description'); ?></label>
+                                                <div class="col-md-10">
+                                                    <div id = "outcomes_area11">
+                                                        <div class="d-flex mt-2">
+                                                            <div class="flex-grow-1 px-3">
+                                                                <div class="form-group">
+                                                                    <textarea name="admission_counselors_description" id = "admission_counselors_description" class="form-control"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="admission_counselors"><?php echo get_phrase('admission_counselors'); ?></label>
+                                                <div class="col-md-10">
+                                                    <div id = "admission_counselors_area">
+                                                        <div class="d-flex mt-2">
+                                                            <div class="flex-grow-1 px-3">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="admission_counselors[]" id="admission_counselors" placeholder="<?php echo get_phrase('admission_counselors'); ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="">
+                                                                <button type="button" class="btn btn-success btn-sm" name="button" onclick="appendAdmissionCounselors()"> <i class="fa fa-plus"></i> </button>
+                                                            </div>
+                                                        </div>
+                                                        <div id = "blank_admission_counselors_field">
+                                                            <div class="d-flex mt-2">
+                                                                <div class="flex-grow-1 px-3">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" name="admission_counselors[]" id="admission_counselors" placeholder="<?php echo get_phrase('admission_counselors'); ?>">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="">
+                                                                    <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeAdmissionCounselors(this)"> <i class="fa fa-minus"></i> </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="eligibility">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-8">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="eligibility"><?php echo get_phrase('eligibility'); ?></label>
+                                                <div class="col-md-10">
+                                                    <div id = "outcomes_area11">
+                                                        <div class="d-flex mt-2">
+                                                            <div class="flex-grow-1 px-3">
+                                                                <div class="form-group">
+                                                                    <textarea name="eligibility_short_description" id = "eligibility_short_description" class="form-control"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="program_overview"><?php echo get_phrase('eligibility'); ?></label>
+                                                <div class="col-md-10">
+                                                    <div id = "eligibility_area">
+                                                        <div class="d-flex mt-2">
+                                                            <div class="flex-grow-1 row px-3">
+                                                                <div class="form-group col-md-6">
+                                                                    <input type="text" class="form-control icon-picker" name="icon[]" id="icon" placeholder="<?php echo get_phrase('icon'); ?>">
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <input type="text" class="form-control" name="eligibility_description[]" id="eligibility_description" placeholder="<?php echo get_phrase('eligibility_description'); ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="">
+                                                                <button type="button" class="btn btn-success btn-sm" name="button" onclick="appendEligibility()"> <i class="fa fa-plus"></i> </button>
+                                                            </div>
+                                                        </div>
+                                                        <div id = "blank_eligibility_field">
+                                                            <div class="d-flex mt-2">
+                                                                <div class="flex-grow-1 row px-3">
+                                                                <div class="form-group col-md-6">
+                                                                    <input type="text" class="form-control icon-picker" name="icon[]" id="icon" placeholder="<?php echo get_phrase('icon'); ?>">
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <input type="text" class="form-control" name="eligibility_description[]" id="eligibility_description" placeholder="<?php echo get_phrase('eligibility_description'); ?>">
+                                                                </div>
+                                                            </div>
+                                                                <div class="">
+                                                                    <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeEligibility(this)"> <i class="fa fa-minus"></i> </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -378,6 +671,11 @@
 
 <script type="text/javascript">
 var blank_outcome = jQuery('#blank_outcome_field').html();
+var blank_feature = jQuery('#blank_feature_field').html();
+var blank_skill = jQuery('#blank_skill_field').html();
+var blank_tool = jQuery('#blank_tool_field').html();
+var blank_eligibility = jQuery('#blank_eligibility_field').html();
+var blank_counselors = jQuery('#blank_admission_counselors_field').html();
 var blank_requirement = jQuery('#blank_requirement_field').html();
 jQuery(document).ready(function() {
   jQuery('#blank_outcome_field').hide();
@@ -389,6 +687,42 @@ function appendOutcome() {
 function removeOutcome(outcomeElem) {
   jQuery(outcomeElem).parent().parent().remove();
 }
+
+function appendFeature() {
+  jQuery('#key_feature_area').append(blank_feature);
+}
+function removeFeature(outcomeElem) {
+  jQuery(outcomeElem).parent().parent().remove();
+}
+
+function appendSkill() {
+  jQuery('#skills_area').append(blank_skill);
+}
+function removeSkill(outcomeElem) {
+  jQuery(outcomeElem).parent().parent().remove();
+}
+
+function appendTools() {
+  jQuery('#tools_area').append(blank_tool);
+}
+function removeTools(outcomeElem) {
+  jQuery(outcomeElem).parent().parent().remove();
+}
+
+function appendEligibility() {
+  jQuery('#eligibility_area').append(blank_eligibility);
+}
+function removeEligibility(outcomeElem) {
+  jQuery(outcomeElem).parent().parent().remove();
+}
+
+function appendAdmissionCounselors() {
+  jQuery('#admission_counselors_area').append(blank_counselors);
+}
+function removeAdmissionCounselors(outcomeElem) {
+  jQuery(outcomeElem).parent().parent().remove();
+}
+
 
 function appendRequirement() {
   jQuery('#requirement_area').append(blank_requirement);
